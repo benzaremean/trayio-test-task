@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist",
+        "sourceMap": false,
+        "target": "es2019",
+        "module": "commonjs",
+        "removeComments": true,
+        "noImplicitAny": true,
+        "strictPropertyInitialization": true,
+        "strictNullChecks": true,
+        "types": [
+            "node",
+            "webdriverio/sync",
+            "@wdio/cucumber-framework"
+        ]
+    },
+    "include": [
+        "./features/**/*.ts",
+        "./helpers/**/*.ts",
+        "./wdio.conf.ts"
+    ]
+}
