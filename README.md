@@ -28,9 +28,11 @@ So for the task I decided to use [webdriverio version 7](https://webdriver.io/)
 
 ## Pre-requisites
 
+```
 Node JS 14
 Java 11
 Chrome browser
+```
 
 ## To run the tests
 
