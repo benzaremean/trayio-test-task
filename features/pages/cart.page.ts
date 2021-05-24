@@ -10,6 +10,10 @@ class CartPage {
     return $$('.cart_item');
   }
 
+  get checkoutBtn() {
+    return $('[data-test="checkout"]');
+  }
+
   cartItemsCount() {
     actionable(this.cartItem);
     return this.cartItems.length;
@@ -31,6 +35,10 @@ class CartPage {
     const cheapestItem =
       cartItemsSortedDescending[cartItemsSortedDescending.length - 1];
     new CartItem(cheapestItem).removeFromCart();
+  }
+
+  proceedToCheckout() {
+    actionable(this.checkoutBtn).click();
   }
 }
 

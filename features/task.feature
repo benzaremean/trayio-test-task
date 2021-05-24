@@ -11,3 +11,6 @@ Feature: Test Task Feature
     Then there should be 2 items in my cart
     When I remove the cheapest item in my cart
     Then there should be 1 item in my cart
+    When I proceed to checkout
+    Then I should be on the checkout page
+

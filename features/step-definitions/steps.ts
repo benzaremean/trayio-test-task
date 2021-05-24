@@ -4,25 +4,9 @@ import { Given, When, Then } from '@cucumber/cucumber';
 import loginPage from '../pages/login.page';
 import inventoryPage from '../pages/inventory.page';
 import cartPage from '../pages/cart.page';
+import checkoutPage from '../pages/checkout.page';
 import primaryHeader from '../pages/components/primaryHeader.component';
 import { actionable } from '../../helpers';
-
-Given(/^I am on the login page$/, () => {
-  loginPage.open();
-  loginPage.login('standard_user', 'secret_sauce');
-  inventoryPage.sort('Price (high to low)');
-  inventoryPage.inventoryItemsSortedDescending();
-
-  const count = inventoryPage.inventoryItemsCount();
-  inventoryPage.addToCart(count - 1);
-  inventoryPage.addToCart(count - 2);
-  primaryHeader.waitUntilBadgeCountIs('2');
-  primaryHeader.goToCart();
-  console.log('===========>', cartPage.cartItemsCount());
-  cartPage.removeCheapestFromCart();
-  console.log('===========>', cartPage.cartItemsCount());
-  browser.pause(60000);
-});
 
 Given(/^I login as '(.*)'$/, (username: string) => {
   loginPage.open();
@@ -66,4 +50,12 @@ Then(
 
 When(/^I remove the cheapest item in my cart$/, () => {
   cartPage.removeCheapestFromCart();
+});
+
+When(/^I proceed to checkout$/, () => {
+  cartPage.proceedToCheckout();
+});
+
+Then(/^I should be on the checkout page$/, () => {
+  actionable(checkoutPage.firstNameInput);
 });
