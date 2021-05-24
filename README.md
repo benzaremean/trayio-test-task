@@ -9,6 +9,7 @@ So for the task I decided to use [webdriverio version 7](https://webdriver.io/)
 ├── features
 │   ├── pages
 │   │   ├── cart.page.ts
+│   │   ├── checkout.page.ts
 │   │   ├── components
 │   │   │   ├── cartItem.component.ts
 │   │   │   ├── inventoryItem.component.ts
